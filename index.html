@@ -3442,6 +3442,16 @@ document.getElementById("confirmDeleteBtn").addEventListener("click", async ()=>
    that don't support service workers (e.g. some in-app browsers).
 ================================================================= */
 if ("serviceWorker" in navigator){
+  // Reload the tab automatically the moment a newer service worker takes
+  // control, so already-open tabs (e.g. a backgrounded phone tab) pick up
+  // deployed updates without needing a manual force-close.
+  let swRefreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (swRefreshing) return;
+    swRefreshing = true;
+    window.location.reload();
+  });
+
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("sw.js").catch((err) => {
       console.error("Service worker registration failed:", err);
