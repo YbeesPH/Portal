@@ -3,7 +3,7 @@
 // offline. It deliberately does NOT cache calls to the Apps Script backend —
 // those always go to the network, so employee/attendance data is never stale.
 
-const CACHE_NAME = "ybees-portal-shell-v1";
+const CACHE_NAME = "ybees-portal-shell-v2";
 const SHELL_FILES = [
   "./",
   "./index.html",
