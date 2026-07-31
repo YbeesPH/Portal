@@ -6,7 +6,7 @@
 // IMPORTANT: bump CACHE_NAME every time you deploy a change. Browsers only
 // check for a new service worker when the file's bytes differ from what
 // they already have — changing this string is what triggers that check.
-const CACHE_NAME = "ybees-portal-shell-v3";
+const CACHE_NAME = "ybees-portal-shell-v4";
 const SHELL_FILES = [
   "./",
   "./index.html",
